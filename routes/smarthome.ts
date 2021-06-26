@@ -6,14 +6,11 @@ import { proxy } from "https://deno.land/x/oak_http_proxy@1.3.0/mod.ts";
 const router  = new Router()
 
 
-router.get("/:id",proxy("https://becocastelo.unicontrol.me",{
+router.get("/:id",(ctx)=>{
 
-    srcResDecorator: (req, res, proxyRes, proxyResData) => {
-        res = proxyRes
-        res.body = proxyResData
-    }
 
-}))
+    ctx.response.body = "jadson"
+})
 
 
 
